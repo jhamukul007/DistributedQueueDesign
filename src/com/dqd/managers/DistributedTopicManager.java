@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class DistributedTopicManager<T> {
     private Map<String, DistributedTopic<T>> distributedTopicMap;
@@ -17,7 +18,7 @@ public class DistributedTopicManager<T> {
 
     private DistributedTopicManager(Loggable consoleLogger) {
         this.consoleLogger = consoleLogger;
-        this.distributedTopicMap = new HashMap<>();
+        this.distributedTopicMap = new ConcurrentHashMap<>();
     }
 
     // Multi-Threaded singleton design pattern

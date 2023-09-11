@@ -20,8 +20,8 @@ public class CommandHandler {
     public static void main(String[] args) throws IOException {
         Loggable consoleLogger = new ConsoleLogger();
         DistributedTopicManager<String> distributedTopicManager = DistributedTopicManager.getDistributedTopicManager(consoleLogger);
-        DistributedProducerManager<String> producerManager = new DistributedProducerManager<>(consoleLogger);
-        ConsumerManager<String> consumerManager = new ConsumerManager<>(consoleLogger);
+        DistributedProducerManager<String> producerManager = DistributedProducerManager.getDistributedProducerManager(consoleLogger);
+        ConsumerManager<String> consumerManager = ConsumerManager.getConsumerManager(consoleLogger);
 
         Scanner scanner = new Scanner(System.in);
         System.out.print("Create topic : ");

@@ -9,7 +9,7 @@ import java.util.UUID;
 
 @EqualsAndHashCode(of = "consumerId")
 @Getter
-public class Consumer<T> implements Consumable<String> {
+public class Consumer<T> implements Consumable<T> {
     private String consumerId;
     private Loggable loggable;
 
@@ -19,7 +19,7 @@ public class Consumer<T> implements Consumable<String> {
     }
 
     @Override
-    public void consume(String message) {
+    public void consume(T message) {
         loggable.log(String.format("%s received %s ", this.consumerId, message));
     }
 }

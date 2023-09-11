@@ -41,7 +41,7 @@ public class DistributedTopic<T> implements Broadcast<T> {
         if (!queue.isEmpty()) {
             T message = queue.poll();
             consumers.forEach(consumer -> {
-                consumer.consume((String) message);
+                consumer.consume(message);
             });
         }
     }
